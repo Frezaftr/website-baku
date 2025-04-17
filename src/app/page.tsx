@@ -160,63 +160,65 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen bg-[#F3F8FF] py-16 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
-          
-          {/* Carousel Gambar (kiri di desktop) */}
-          <div className="flex-1 flex justify-center">
-            <Swiper
-              modules={[Autoplay, Pagination, Navigation]}
-              autoplay={{ delay: 2000, disableOnInteraction: false }}
-              loop={true}
-              navigation={true}
-              pagination={{
-                clickable: true,
-                type: 'progressbar',
-              }}
-              className="w-full max-w-[500px]"
-            >
-              {["/ABOUT.png", "/ABOUT2.jpg", "/ABOUT3.jpg", "/ABOUT4.jpg", "/ABOUT1.jpg"].map((src, idx) => (
-                <SwiperSlide key={idx}>
-                  <img
-                    src={src}
-                    alt={`Slide ${idx + 1}`}
-                    className="w-full h-auto max-h-[400px] object-contain sm:object-cover rounded-lg"
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+      <section id="about" className="min-h-screen bg-[#F3F8FF] py-16 px-4 overflow-hidden">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            
+            {/* Carousel Gambar (kiri di desktop) */}
+            <div className="w-full md:w-1/2">
+              <Swiper
+                modules={[Autoplay, Pagination]}
+                autoplay={{ delay: 2000, disableOnInteraction: false }}
+                loop={true}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: true,
+                }}
+                className="w-full"
+              >
+                {["/ABOUT.png", "/ABOUT2.jpg", "/ABOUT3.jpg", "/ABOUT4.jpg", "/ABOUT1.jpg"].map((src, idx) => (
+                  <SwiperSlide key={idx}>
+                    <div className="w-full aspect-video rounded-lg overflow-hidden">
+                      <img
+                        src={src}
+                        alt={`Slide ${idx + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
 
-          {/* Teks (kanan di desktop) dengan animasi */}
-          <motion.div 
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-4">
-              Tentang Kami
-            </h2>
-            <p className="text-gray-700 text-base md:text-lg mb-4">
-              BAKU (Belajar, Aktif, Kreatif, Unggul) adalah lembaga bimbingan belajar yang fokus pada
-              pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
-            </p>
-            <p className="text-gray-700 text-base md:text-lg mb-6">
-              Dengan guru berpengalaman dan metode yang adaptif, kami percaya bahwa setiap anak bisa belajar dengan gembira dan optimal.
-            </p>
-            <a
-              href="https://wa.me/6289629047028?text=Halo%20BAKU%2C%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel%20anak"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#4A6FA5] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#7096D1] transition"
+            {/* Teks (kanan di desktop) dengan animasi */}
+            <motion.div 
+              className="w-full md:w-1/2 text-center md:text-left"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
             >
-              Konsultasi Sekarang
-            </a>
-          </motion.div>
-        </div>
-      </section>
+              <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-4">
+                Tentang Kami
+              </h2>
+              <p className="text-gray-700 text-base md:text-lg mb-4">
+                BAKU (Belajar, Aktif, Kreatif, Unggul) adalah lembaga bimbingan belajar yang fokus pada
+                pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
+              </p>
+              <p className="text-gray-700 text-base md:text-lg mb-6">
+                Dengan guru berpengalaman dan metode yang adaptif, kami percaya bahwa setiap anak bisa belajar dengan gembira dan optimal.
+              </p>
+              <a
+                href="https://wa.me/6289629047028?text=Halo%20BAKU%2C%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel%20anak"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#4A6FA5] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#7096D1] transition"
+              >
+                Konsultasi Sekarang
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
 
 
       {/* Review Section */}
