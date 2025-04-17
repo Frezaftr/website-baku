@@ -3,10 +3,9 @@
 
 import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Navigation} from 'swiper/modules';
+import { Pagination, Autoplay} from 'swiper/modules';
 import { motion } from "framer-motion";
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 
