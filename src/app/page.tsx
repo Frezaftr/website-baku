@@ -3,8 +3,11 @@
 
 import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation} from 'swiper/modules';
 import { motion } from "framer-motion";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 
@@ -73,7 +76,7 @@ export default function Home() {
 
 
       {/* Program Section */}
-      <section id="program" className="min-h-screen bg-[#F3F8FF] px-6 py-20">
+      <section id="program" className="min-h-[800px] bg-[#F3F8FF] px-6 py-20">
         <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-10 text-center">
           Program Kami
         </h2>
@@ -157,116 +160,160 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-        <section id="about" className="bg-[#F3F8FF] py-16 px-6">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
-            
-            {/* Gambar (kiri di desktop) */}
-            <div className="flex-1 flex justify-center">
-              <img
-                src="/ABOUT.png"
-                alt="Ilustrasi Tentang Kami"
-                className="w-full max-w-[500px] md:max-w-[500px]"
-              />
-            </div>
-
-            {/* Teks (kanan di desktop) dengan animasi */}
-            <motion.div 
-              className="flex-1 text-center md:text-left"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
+      <section id="about" className="min-h-[800px] bg-[#F3F8FF] py-16 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+          
+          {/* Carousel Gambar (kiri di desktop) */}
+          <div className="flex-1 flex justify-center">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              autoplay={{ delay: 2000, disableOnInteraction: false }}
+              loop={true}
+              navigation={true}
+              pagination={{
+                clickable: true,
+                type: 'progressbar',
+              }}
+              className="w-full max-w-[500px]"
             >
-              <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-4">
-                Tentang Kami
-              </h2>
-              <p className="text-gray-700 text-base md:text-lg mb-4">
-                BAKU (Belajar,Aktif,Kreatif,Unggul) adalah lembaga bimbingan belajar yang fokus pada
-                pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
-              </p>
-              <p className="text-gray-700 text-base md:text-lg mb-6">
-                Dengan guru berpengalaman dan metode yang adaptif, kami percaya bahwa setiap anak bisa belajar dengan gembira dan optimal.
-              </p>
-              <a
-                href="https://wa.me/6289629047028?text=Halo%20BAKU%2C%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel%20anak"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#4A6FA5] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#7096D1] transition"
-              >
-                Konsultasi Sekarang
-              </a>
-            </motion.div>
+              <SwiperSlide>
+                <img
+                  src="/ABOUT.png"
+                  alt="Slide 1"
+                  className="w-full h-[300px] object-cover"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="/ABOUT2.jpg"
+                  alt="Slide 2"
+                  className="w-full h-[300px] object-cover"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="/ABOUT3.jpg"
+                  alt="Slide 3"
+                  className="w-full h-[300px] object-cover"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="/ABOUT4.jpg"
+                  alt="Slide 4"
+                  className="w-full h-[300px] object-cover"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img
+                  src="/ABOUT1.jpg"
+                  alt="Slide 5"
+                  className="w-full h-[300px] object-cover"
+                />
+              </SwiperSlide>
+            </Swiper>
           </div>
-        </section>
-
-        {/* Review Section */}
-        <section id="review" className="min-h-screen bg-[#F3F8FF] px-6 py-20">
-          <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-10 text-center">Testimoni</h2>
-
-          <Swiper
-            modules={[Pagination, Autoplay]}
-            slidesPerView={1}
-            spaceBetween={24}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 1500 }}
-            loop={true}
-            breakpoints={{
-              768: { slidesPerView: 2, spaceBetween: 24 },
-              1024: { slidesPerView: 3, spaceBetween: 32 },
-            }}
-            className="pb-10 max-w-6xl mx-auto"
+          {/* Teks (kanan di desktop) dengan animasi */}
+          <motion.div 
+            className="flex-1 text-center md:text-left"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            {/* Testimoni 1 */}
-            <SwiperSlide>
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] h-full flex flex-col items-center text-center">
-                <img src="/guru.png" alt="Ibu Ani" className="w-20 h-20 rounded-full mb-4 object-cover" />
-                <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Ani</h3>
-                <p className="text-sm text-[#7096D1] mb-2">Program Bimba</p>
-                <p className="text-gray-600 text-sm">“Anak saya sangat semangat belajar di BAKU!”</p>
-              </div>
-            </SwiperSlide>
+            <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-4">
+              Tentang Kami
+            </h2>
+            <p className="text-gray-700 text-base md:text-lg mb-4">
+              BAKU (Belajar,Aktif,Kreatif,Unggul) adalah lembaga bimbingan belajar yang fokus pada
+              pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
+            </p>
+            <p className="text-gray-700 text-base md:text-lg mb-6">
+              Dengan guru berpengalaman dan metode yang adaptif, kami percaya bahwa setiap anak bisa belajar dengan gembira dan optimal.
+            </p>
+            <a
+              href="https://wa.me/6289629047028?text=Halo%20BAKU%2C%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel%20anak"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#4A6FA5] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#7096D1] transition"
+            >
+              Konsultasi Sekarang
+            </a>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Testimoni 2 */}
-            <SwiperSlide>
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] h-full flex flex-col items-center text-center">
-                <img src="/guru.png" alt="Pak Purnomo" className="w-20 h-20 rounded-full mb-4 object-cover" />
-                <h3 className="font-semibold text-[#4A6FA5] text-lg">Pak Budi</h3>
-                <p className="text-sm text-[#7096D1] mb-2">Program SD</p>
-                <p className="text-gray-600 text-sm">“Guru-gurunya ramah dan metode ajarnya cocok banget buat anak saya.”</p>
-              </div>
-            </SwiperSlide>
+      {/* Review Section */}
+      <section id="review" className="min-h-[700px] bg-[#F3F8FF] px-6 py-20">
+        <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-10 text-center">Testimoni</h2>
 
-            {/* Testimoni 3 */}
-            <SwiperSlide>
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] h-full flex flex-col items-center text-center">
-                <img src="/guru.png" alt="Ibu Diksa" className="w-20 h-20 rounded-full mb-4 object-cover" />
-                <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Rina</h3>
-                <p className="text-sm text-[#7096D1] mb-2">Program SMP</p>
-                <p className="text-gray-600 text-sm">“Anak saya sekarang jadi lebih percaya diri saat ujian!”</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] h-full flex flex-col items-center text-center">
-                <img src="/guru.png" alt="Ibu Sasa" className="w-20 h-20 rounded-full mb-4 object-cover" />
-                <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Ani</h3>
-                <p className="text-sm text-[#7096D1] mb-2">Program Bimba</p>
-                <p className="text-gray-600 text-sm">“Anak saya sangat semangat belajar di BAKU!”</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] h-full flex flex-col items-center text-center">
-                <img src="/guru.png" alt="Ibu Ani" className="w-20 h-20 rounded-full mb-4 object-cover" />
-                <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Ani</h3>
-                <p className="text-sm text-[#7096D1] mb-2">Program Bimba</p>
-                <p className="text-gray-600 text-sm">“Anak saya sangat semangat belajar di BAKU!”</p>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </section>
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          slidesPerView={1}
+          spaceBetween={24}
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 1500 }}
+          loop={true}
+          breakpoints={{
+            768: { slidesPerView: 2, spaceBetween: 24 },
+            1024: { slidesPerView: 3, spaceBetween: 32 },
+          }}
+          className="pb-10 max-w-6xl mx-auto"
+        >
+          {/* Testimoni 1 */}
+          <SwiperSlide>
+            <div className="bg-white rounded-2xl p-8 shadow-md border-2 border-[#4A6FA5] h-full flex flex-col items-center text-center">
+              <img src="/guru.png" alt="Ibu Ani" className="w-24 h-24 rounded-full mb-4 object-cover" />
+              <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Ani</h3>
+              <p className="text-sm text-[#7096D1] mb-2">Program Bimba</p>
+              <p className="text-gray-600 text-sm">“Anak saya sangat semangat belajar di BAKU!”</p>
+            </div>
+          </SwiperSlide>
 
+          {/* Testimoni 2 */}
+          <SwiperSlide>
+            <div className="bg-white rounded-2xl p-8 shadow-md border border-2 border-[#4A6FA5] h-full flex flex-col items-center text-center">
+              <img src="/guru.png" alt="Pak Purnomo" className="w-24 h-24 rounded-full mb-4 object-cover" />
+              <h3 className="font-semibold text-[#4A6FA5] text-lg">Pak Budi</h3>
+              <p className="text-sm text-[#7096D1] mb-2">Program SD</p>
+              <p className="text-gray-600 text-sm">“Guru-gurunya ramah dan metode ajarnya cocok banget buat anak saya.”</p>
+            </div>
+          </SwiperSlide>
+
+          {/* Testimoni 3 */}
+          <SwiperSlide>
+            <div className="bg-white rounded-2xl p-8 shadow-md border-2 border-[#4A6FA5] h-full flex flex-col items-center text-center">
+              <img src="/guru.png" alt="Ibu Diksa" className="w-24 h-24 rounded-full mb-4 object-cover" />
+              <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Rina</h3>
+              <p className="text-sm text-[#7096D1] mb-2">Program SMP</p>
+              <p className="text-gray-600 text-sm">“Anak saya sekarang jadi lebih percaya diri saat ujian!”</p>
+            </div>
+          </SwiperSlide>
+
+          {/* Testimoni 4 */}
+          <SwiperSlide>
+            <div className="bg-white rounded-2xl p-8 shadow-md border-2 border-[#4A6FA5] h-full flex flex-col items-center text-center">
+              <img src="/guru.png" alt="Ibu Sasa" className="w-24 h-24 rounded-full mb-4 object-cover" />
+              <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Ani</h3>
+              <p className="text-sm text-[#7096D1] mb-2">Program Bimba</p>
+              <p className="text-gray-600 text-sm">“Anak saya sangat semangat belajar di BAKU!”</p>
+            </div>
+          </SwiperSlide>
+
+          {/* Testimoni 5 */}
+          <SwiperSlide>
+            <div className="bg-white rounded-2xl p-8 shadow-md border-2 border-[#4A6FA5] h-full flex flex-col items-center text-center">
+              <img src="/guru.png" alt="Ibu Ani" className="w-24 h-24 rounded-full mb-4 object-cover" />
+              <h3 className="font-semibold text-[#4A6FA5] text-lg">Ibu Ani</h3>
+              <p className="text-sm text-[#7096D1] mb-2">Program Bimba</p>
+              <p className="text-gray-600 text-sm">“Anak saya sangat semangat belajar di BAKU!”</p>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </section>
 
       {/* Guru Section */}
-    <section id="guru" className="min-h-screen bg-white px-6 py-20">
+    <section id="guru" className="min-h-[800px] bg-white px-6 py-20">
       <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-6 text-center">Pengajar</h2>
       <p className="text-gray-700 max-w-3xl mx-auto text-center mb-12">
         Tim pengajar kami adalah lulusan terbaik dan berpengalaman dalam pendidikan anak.
