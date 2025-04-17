@@ -22,34 +22,34 @@ export default function Home() {
   return (
     <>
       {/* Home Section */}
-      <section id="home" className="min-h-screen bg-white px-12 py-60 flex flex-col-reverse md:flex-row items-center justify-between">
-          {/* Text Section */}
-          <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#4A6FA5] mb-4">
-              Selamat Datang di BAKU!
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-6">
-              Tempat belajar asyik dan berkualitas untuk anak-anak sesuai Kurikulum Merdeka. Yuk, kembangkan potensi bersama kami!
-            </p>
-            <div className="space-x-4">
-              <a href="#program" className="bg-[#4A6FA5] text-white px-6 py-3 rounded-xl hover:bg-[#7096D1] transition">
-                Lihat Program
-              </a>
-              <a href="#about" className="text-[#4A6FA5] border border-[#4A6FA5] px-6 py-3 rounded-xl hover:bg-[#F3F8FF] transition">
-                Tentang Kami
-              </a>
-            </div>
-          </div>
+      <section id="home" className="min-h-screen bg-white px-4 sm:px-6 md:px-12 py-20 sm:py-32 lg:py-40 flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+  {/* Text Section */}
+  <div className="w-full md:w-1/2 text-center md:text-left">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4A6FA5] mb-4 leading-tight">
+      Selamat Datang di BAKU!
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6">
+      Tempat belajar asyik dan berkualitas untuk anak-anak sesuai Kurikulum Merdeka. Yuk, kembangkan potensi bersama kami!
+    </p>
+    <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+      <a href="#program" className="bg-[#4A6FA5] text-white px-6 py-3 rounded-xl hover:bg-[#7096D1] transition w-full sm:w-auto text-center">
+        Lihat Program
+      </a>
+      <a href="#about" className="text-[#4A6FA5] border border-[#4A6FA5] px-6 py-3 rounded-xl hover:bg-[#F3F8FF] transition w-full sm:w-auto text-center">
+        Tentang Kami
+      </a>
+    </div>
+  </div>
 
-          {/* Image Section */}
-          <div className="md:w-1/2 mb-10 md:mb-0 flex justify-center">
-            <img 
-              src="/BAKU.png" // pastikan gambar ada di folder public
-              alt="Ilustrasi Anak Belajar" 
-              className="w-[450px] md:w-[450px] drop-shadow-lg"
-            />
-          </div>
-        </section>
+  {/* Image Section */}
+  <div className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
+    <img 
+      src="/BAKU.png"
+      alt="Ilustrasi Anak Belajar"
+      className="w-[250px] sm:w-[350px] md:w-[400px] lg:w-[450px] drop-shadow-lg"
+    />
+  </div>
+      </section>
 
       {/* Program Section */}
       <section id="program" className="min-h-screen bg-[#F3F8FF] px-6 py-20">
