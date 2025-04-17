@@ -231,7 +231,7 @@ export default function Home() {
             <img src="/guru.png" alt="Guru 1" className="w-32 h-32 rounded-full object-cover mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-[#4A6FA5] mb-1">Bu Diksa</h3>
             <p className="text-gray-600 text-sm mb-2">Usia: 29 tahun</p>
-            <p className="text-gray-700 text-sm italic">"Belajar itu menyenangkan, mari tumbuh bersama!"</p>
+            <p className="text-gray-700 text-sm italic">Belajar itu menyenangkan, mari tumbuh bersama!</p>
           </div>
 
           {/* Card Guru 2 */}
@@ -239,7 +239,7 @@ export default function Home() {
             <img src="/guru.png" alt="Guru 2" className="w-32 h-32 rounded-full object-cover mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-[#4A6FA5] mb-1">Pak Dedi</h3>
             <p className="text-gray-600 text-sm mb-2">Usia: 32 tahun</p>
-            <p className="text-gray-700 text-sm italic">"Setiap anak punya potensi hebat yang harus dikembangkan."</p>
+            <p className="text-gray-700 text-sm italic">Setiap anak punya potensi hebat yang harus dikembangkan.</p>
           </div>
 
           {/* Card Guru 3 */}
@@ -247,7 +247,7 @@ export default function Home() {
             <img src="/guru.png" alt="Guru 3" className="w-32 h-32 rounded-full object-cover mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-[#4A6FA5] mb-1">Bu Diksa</h3>
             <p className="text-gray-600 text-sm mb-2">Usia: 27 tahun</p>
-            <p className="text-gray-700 text-sm italic">"Membimbing dengan hati, membentuk masa depan cerah."</p>
+            <p className="text-gray-700 text-sm italic">Membimbing dengan hati, membentuk masa depan cerah.</p>
           </div>
         </div>
       </section>
