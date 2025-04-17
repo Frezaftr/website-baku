@@ -307,8 +307,8 @@ export default function Home() {
     {/* Kontak */}
     <div>
       <h3 className="text-xl font-semibold mb-4">Hubungi Kami</h3>
-      <p>📞 0812-3456-7890</p>
-      <p>✉️ info@baku.com</p>
+      <p>📞 0896-2904-7028</p>
+      <p>✉️ bimbabimbelbaku@gmail.com</p>
     </div>
 
     {/* Alamat & Google Maps */}
@@ -333,20 +333,20 @@ export default function Home() {
       <h3 className="text-xl font-semibold mb-4">Ikuti Kami</h3>
       <ul className="space-y-2">
         <li>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+          <a href="https://www.instagram.com/bimbabimbel.baku?igsh=MXB6ZDRiZ2xkMWdzbg==" target="_blank" rel="noopener noreferrer" className="hover:underline">
             📸 Instagram
           </a>
         </li>
         <li>
-          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="hover:underline">
+          <a href="https://wa.me/6289629047028" target="_blank" rel="noopener noreferrer" className="hover:underline">
             💬 WhatsApp
           </a>
         </li>
-        <li>
+        {/* <li>
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
             👍 Facebook
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
 
