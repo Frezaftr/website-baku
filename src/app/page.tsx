@@ -4,6 +4,7 @@
 import { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import { motion } from "framer-motion";
 
 
 
@@ -23,148 +24,180 @@ export default function Home() {
     <>
       {/* Home Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 py-20 sm:py-32 lg:py-40 bg-white overflow-hidden">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
-            style={{ backgroundImage: "url('/BAKU.png')" }}
-          ></div>
+  {/* Background Image */}
+  <div 
+    className="absolute inset-0 bg-cover bg-center blur-sm scale-105"
+    style={{ backgroundImage: "url('/BAKU.png')" }}
+  ></div>
 
-          {/* Overlay untuk efek gelap agar teks kontras */}
-          <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+  {/* Overlay untuk efek terang dan kontras teks */}
+  <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
 
-          {/* Content */}
-          <div className="relative z-10 w-full max-w-5xl flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-            {/* Text Section */}
-            <div className="w-full md:w-1/2 text-center md:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4A6FA5] mb-4 leading-tight">
-                Selamat Datang di BAKU!
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6">
-                Tempat belajar asyik dan berkualitas untuk anak-anak sesuai Kurikulum Merdeka. Yuk, kembangkan potensi bersama kami!
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 w-full">
-                <a 
-                  href="#program" 
-                  className="bg-[#4A6FA5] text-white px-6 py-3 rounded-xl hover:bg-[#7096D1] transition w-full sm:w-auto text-center"
-                >
-                  Lihat Program
-                </a>
-                <a 
-                  href="#about" 
-                  className="text-[#4A6FA5] border border-[#4A6FA5] px-6 py-3 rounded-xl hover:bg-[#F3F8FF] transition w-full sm:w-auto text-center"
-                >
-                  Tentang Kami
-                </a>
-              </div>
-            </div>
+  {/* Content */}
+  <div className="relative z-10 w-full max-w-5xl flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+    
+    {/* Text Section with animation */}
+    <motion.div 
+      className="w-full md:w-1/2 text-center md:text-left"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#4A6FA5] mb-4 leading-tight">
+        Selamat Datang di BAKU!
+      </h1>
+      <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6">
+        Tempat belajar asyik dan berkualitas untuk anak-anak sesuai Kurikulum Merdeka. Yuk, kembangkan potensi bersama kami!
+      </p>
+      <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 w-full">
+        <a 
+          href="#program" 
+          className="bg-[#4A6FA5] text-white px-6 py-3 rounded-xl hover:bg-[#7096D1] transition w-full sm:w-auto text-center"
+        >
+          Lihat Program
+        </a>
+        <a 
+          href="#about" 
+          className="text-[#4A6FA5] border border-[#4A6FA5] px-6 py-3 rounded-xl hover:bg-[#F3F8FF] transition w-full sm:w-auto text-center"
+        >
+          Tentang Kami
+        </a>
+      </div>
+    </motion.div>
 
-            {/* Image Placeholder (bisa dihapus kalau tidak perlu) */}
-            <div className="w-full md:w-1/2 hidden md:block">
-              {/* Kosong karena gambar sudah dijadikan background */}
-            </div>
-          </div>
-        </section>
+    {/* Empty column (karena gambar background) */}
+    <div className="w-full md:w-1/2 hidden md:block"></div>
+  </div>
+</section>
 
 
       {/* Program Section */}
       <section id="program" className="min-h-screen bg-[#F3F8FF] px-6 py-20">
-  <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-10 text-center">
-    Program Kami
-  </h2>
+        <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-10 text-center">
+          Program Kami
+        </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    {/* Card Bimba */}
-    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border border-[#DCE6F9] text-center">
-      <img src="/BIMBA.png" alt="Bimba" className="w-40 h-40 mx-auto mb-4" />
-      <h3 className="text-xl font-semibold text-[#4A6FA5] mb-2">Program Bimba</h3>
-      <p className="text-gray-600 mb-4 text-sm">
-        Belajar membaca, menulis, dan berhitung dengan metode menyenangkan untuk anak usia dini.
-      </p>
-      <span className="text-[#7096D1] font-medium block mb-4">Usia 3-6 tahun</span>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-auto px-4 py-2 rounded-lg bg-[#4A6FA5] text-white font-medium hover:bg-[#3b5a85] transition"
-      >
-        Daftar Sekarang
-      </a>
-    </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Card Bimba */}
+          <motion.div
+            className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] hover:border-[#4A6FA5] hover:border-2 text-center transition-all duration-300"
+            whileHover={{ y: -10, scale: 1.03 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <img src="/BIMBA.png" alt="Bimba" className="w-40 h-40 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-[#4A6FA5] mb-2">Program Bimba</h3>
+            <p className="text-gray-600 mb-4 text-sm">
+              Belajar membaca, menulis, dan berhitung dengan metode menyenangkan untuk anak usia dini.
+            </p>
+            <span className="text-[#7096D1] font-medium block mb-4">Usia 3-6 tahun</span>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded-lg bg-[#4A6FA5] text-white font-medium hover:bg-[#3b5a85] transition"
+            >
+              Daftar Sekarang
+            </a>
+          </motion.div>
 
-    {/* Card SD */}
-    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border border-[#DCE6F9] text-center">
-      <img src="/SD.png" alt="SD" className="w-40 h-40 mx-auto mb-4" />
-      <h3 className="text-xl font-semibold text-[#4A6FA5] mb-2">Program SD</h3>
-      <p className="text-gray-600 mb-4 text-sm">
-        Pembelajaran Matematika, Bahasa, dan IPA untuk mendukung prestasi sekolah.
-      </p>
-      <span className="text-[#7096D1] font-medium block mb-4">Kelas 1 - 6</span>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-auto px-4 py-2 rounded-lg bg-[#4A6FA5] text-white font-medium hover:bg-[#3b5a85] transition"
-      >
-        Daftar Sekarang
-      </a>
-    </div>
+          {/* Card SD */}
+          <motion.div
+            className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] hover:border-[#4A6FA5] hover:border-2 text-center transition-all duration-300"
+            whileHover={{ y: -10, scale: 1.03 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <img src="/SD.png" alt="SD" className="w-40 h-40 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-[#4A6FA5] mb-2">Program SD</h3>
+            <p className="text-gray-600 mb-4 text-sm">
+              Pembelajaran Matematika, Bahasa, dan IPA untuk mendukung prestasi sekolah.
+            </p>
+            <span className="text-[#7096D1] font-medium block mb-4">Kelas 1 - 6</span>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-auto px-4 py-2 rounded-lg bg-[#4A6FA5] text-white font-medium hover:bg-[#3b5a85] transition"
+            >
+              Daftar Sekarang
+            </a>
+          </motion.div>
 
-    {/* Card SMP */}
-    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 border border-[#DCE6F9] text-center">
-      <img src="/SMP.PNG" alt="SMP" className="w-40 h-40 mx-auto mb-4" />
-      <h3 className="text-xl font-semibold text-[#4A6FA5] mb-2">Program SMP</h3>
-      <p className="text-gray-600 mb-4 text-sm">
-        Pendalaman materi dan latihan intensif untuk menghadapi ujian dan masuk SMA unggulan.
-      </p>
-      <span className="text-[#7096D1] font-medium block mb-4">Kelas 7 - 9</span>
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-4 px-4 py-2 rounded-lg bg-[#4A6FA5] text-white font-semibold hover:bg-[#3b5a85] transition"
-      >
-        Daftar Sekarang
-      </a>
-    </div>
-  </div>
-</section>
+          {/* Card SMP */}
+          <motion.div
+            className="bg-white rounded-2xl p-6 shadow-md border border-[#DCE6F9] hover:border-[#4A6FA5] hover:border-2 text-center transition-all duration-300"
+            whileHover={{ y: -10, scale: 1.03 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <img src="/SMP.PNG" alt="SMP" className="w-40 h-40 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-[#4A6FA5] mb-2">Program SMP</h3>
+            <p className="text-gray-600 mb-4 text-sm">
+              Pendalaman materi dan latihan intensif untuk menghadapi ujian dan masuk SMA unggulan.
+            </p>
+            <span className="text-[#7096D1] font-medium block mb-4">Kelas 7 - 9</span>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-4 py-2 rounded-lg bg-[#4A6FA5] text-white font-semibold hover:bg-[#3b5a85] transition"
+            >
+              Daftar Sekarang
+            </a>
+          </motion.div>
+        </div>
+      </section>
 
       {/* About Section */}
         <section id="about" className="bg-[#F3F8FF] py-16 px-6">
-              <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
-                
-                {/* Gambar (kiri di desktop) */}
-                <div className="flex-1 flex justify-center">
-                  <img
-                    src="/ABOUT.png"
-                    alt="Ilustrasi Tentang Kami"
-                    className="w-full max-w-[500px] md:max-w-[500px]"
-                  />
-                </div>
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            
+            {/* Gambar (kiri di desktop) */}
+            <div className="flex-1 flex justify-center">
+              <img
+                src="/ABOUT.png"
+                alt="Ilustrasi Tentang Kami"
+                className="w-full max-w-[500px] md:max-w-[500px]"
+              />
+            </div>
 
-                {/* Teks (kanan di desktop) */}
-                <div className="flex-1 text-center md:text-left">
-                  <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-4">Tentang Kami</h2>
-                  <p className="text-gray-700 text-base md:text-lg mb-4">
-                    BAKU (Bimbingan Anak Keluarga Utama) adalah lembaga bimbingan belajar yang fokus pada
-                    pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
-                  </p>
-                  <p className="text-gray-700 text-base md:text-lg mb-6">
-                    Dengan guru berpengalaman dan metode yang adaptif, kami percaya bahwa setiap anak bisa belajar dengan gembira dan optimal.
-                  </p>
-                  <a
-                    href="https://wa.me/6289629047028?text=Halo%20BAKU%2C%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel%20anak"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-[#4A6FA5] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#7096D1] transition"
-                  >
-                    Konsultasi Sekarang
-                  </a>
-                </div>
-              </div>
-            </section>
-
-
+            {/* Teks (kanan di desktop) dengan animasi */}
+            <motion.div 
+              className="flex-1 text-center md:text-left"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl font-semibold text-[#4A6FA5] mb-4">
+                Tentang Kami
+              </h2>
+              <p className="text-gray-700 text-base md:text-lg mb-4">
+                BAKU (Bimbingan Anak Keluarga Utama) adalah lembaga bimbingan belajar yang fokus pada
+                pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
+              </p>
+              <p className="text-gray-700 text-base md:text-lg mb-6">
+                Dengan guru berpengalaman dan metode yang adaptif, kami percaya bahwa setiap anak bisa belajar dengan gembira dan optimal.
+              </p>
+              <a
+                href="https://wa.me/6289629047028?text=Halo%20BAKU%2C%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel%20anak"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#4A6FA5] text-white px-6 py-2 rounded-full shadow-md hover:bg-[#7096D1] transition"
+              >
+                Konsultasi Sekarang
+              </a>
+            </motion.div>
+          </div>
+        </section>
 
         {/* Review Section */}
         <section id="review" className="min-h-screen bg-[#F3F8FF] px-6 py-20">
