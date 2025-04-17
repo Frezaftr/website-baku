@@ -181,7 +181,7 @@ export default function Home() {
                 Tentang Kami
               </h2>
               <p className="text-gray-700 text-base md:text-lg mb-4">
-                BAKU (Bimbingan Anak Keluarga Utama) adalah lembaga bimbingan belajar yang fokus pada
+                BAKU (Belajar,Aktif,Kreatif,Unggul) adalah lembaga bimbingan belajar yang fokus pada
                 pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
               </p>
               <p className="text-gray-700 text-base md:text-lg mb-6">
