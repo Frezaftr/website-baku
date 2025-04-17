@@ -160,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-[800px] bg-[#F3F8FF] py-16 px-6">
+      <section id="about" className="min-h-screen bg-[#F3F8FF] py-16 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
           
           {/* Carousel Gambar (kiri di desktop) */}
@@ -176,43 +176,18 @@ export default function Home() {
               }}
               className="w-full max-w-[500px]"
             >
-              <SwiperSlide>
-                <img
-                  src="/ABOUT.png"
-                  alt="Slide 1"
-                  className="w-full h-[300px] object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/ABOUT2.jpg"
-                  alt="Slide 2"
-                  className="w-full h-[300px] object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/ABOUT3.jpg"
-                  alt="Slide 3"
-                  className="w-full h-[300px] object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/ABOUT4.jpg"
-                  alt="Slide 4"
-                  className="w-full h-[300px] object-cover"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/ABOUT1.jpg"
-                  alt="Slide 5"
-                  className="w-full h-[300px] object-cover"
-                />
-              </SwiperSlide>
+              {["/ABOUT.png", "/ABOUT2.jpg", "/ABOUT3.jpg", "/ABOUT4.jpg", "/ABOUT1.jpg"].map((src, idx) => (
+                <SwiperSlide key={idx}>
+                  <img
+                    src={src}
+                    alt={`Slide ${idx + 1}`}
+                    className="w-full h-auto max-h-[400px] object-contain sm:object-cover rounded-lg"
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
+
           {/* Teks (kanan di desktop) dengan animasi */}
           <motion.div 
             className="flex-1 text-center md:text-left"
@@ -225,7 +200,7 @@ export default function Home() {
               Tentang Kami
             </h2>
             <p className="text-gray-700 text-base md:text-lg mb-4">
-              BAKU (Belajar,Aktif,Kreatif,Unggul) adalah lembaga bimbingan belajar yang fokus pada
+              BAKU (Belajar, Aktif, Kreatif, Unggul) adalah lembaga bimbingan belajar yang fokus pada
               pembelajaran menyenangkan, personal, dan terstruktur untuk anak-anak dari usia dini hingga SMP.
             </p>
             <p className="text-gray-700 text-base md:text-lg mb-6">
@@ -242,6 +217,7 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
 
       {/* Review Section */}
       <section id="review" className="min-h-[700px] bg-[#F3F8FF] px-6 py-20">
