@@ -1,14 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navItems = [
     { label: 'Home', href: '#home' },
@@ -20,8 +34,8 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="bg-[#F3F8FF] shadow-md py-4 sticky top-0 z-50 transition duration-300 ease-in-out">
-      <div className="container mx-auto px-4 flex justify-between items-center">
+    <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ease-in-out ${isScrolled ? ' backdrop-blur-md shadow-md' : 'bg-[#F3F8FF]'}`}>
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#home">
           <img 
             src="/logoBaku.png" 
@@ -37,7 +51,6 @@ export default function Navbar() {
               <a href={item.href}>{item.label}</a>
             </li>
           ))}
-          {/* Tombol Daftar Sekarang */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
             target="_blank"
@@ -70,7 +83,6 @@ export default function Navbar() {
             </a>
           ))}
 
-          {/* Tombol Daftar Sekarang - Mobile */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLScQRFmUIWvrAlZZcsrRVZ65ukIbCDqOu1AHY5sFu-GXQxV01g/viewform"
             target="_blank"
